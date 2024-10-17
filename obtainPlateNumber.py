@@ -11,8 +11,7 @@ model_weights_path = os.path.join('.', 'model', 'weights', 'model.weights')
 class_names_path = os.path.join('.', 'model', 'class.names')
 
 def getPlate(image):
-    # for img_name in os.listdir(input_dir):
-    #     img_path = os.path.join(input_dir, img_name)
+
     # load class names
     with open(class_names_path, 'r') as f:
         class_names = [j[:-1] for j in f.readlines() if len(j) > 2]

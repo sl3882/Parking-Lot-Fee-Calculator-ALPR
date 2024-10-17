@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 import obtainPlateNumber
 
 parking_log = {}
-backup_folder = 'C:/Users/lsy84/PycharmProjects/ocrProject/temp'
+backup_folder = "C:/Users/lsy84/PycharmProjects/parkingLotCalcProject/temp"
 ob = obtainPlateNumber
 def entry(plateNum):
     if plateNum not in parking_log:
@@ -35,19 +35,22 @@ def exit(plateNum, base_rate=10.0, additional_rate=5.0):
 
         # Remove vehicle from parking log
         del parking_log[plateNum]
-        image_path = os.path.join(backup_folder, f"{plateNum}.jpg")
-        if os.path.exists(image_path):
-            os.remove(image_path)
-            print(f"Backup image {plateNum}.jpg has been deleted.")
-        else:
-            print(f"No backup image found for {plateNum}.")
+        # image_path = os.path.join(backup_folder, f"{plateNum}.jpg")
+        # if os.path.exists(image_path):
+        #      os.remove(image_path)
+        #     print(f"Backup image {plateNum}.jpg has been deleted.")
+        # else:
+        #     print(f"No backup image found for {plateNum}.")
     else:
         print(f"Vehicle {plateNum} not found in parking log.")
 
 if __name__ == '__main__':
     car1 = ob.getPlate("data/1.jpg")
     car2 = ob.getPlate("data/2.jpg")
+    car3 = ob.getPlate("data/3.jpg")
+
     entry(car1)
     entry(car2)
 
     exit(car1)
+    exit(car3)
